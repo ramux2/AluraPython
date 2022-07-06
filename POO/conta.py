@@ -13,14 +13,14 @@ class Conta:
     def deposita(self, valor):
         self.__saldo += valor
     
-    def libera_saque(self, valor_p_sacar):
-        
+    def __libera_saque(self, valor_p_sacar):
+        return valor_p_sacar <= (self.__saldo) # Verifica se tem saldo para sacar, retorna True
     
     def saque(self, valor):
-        if valor <= self.__saldo:
+        if self.__libera_saque(valor):
             self.__saldo -= valor  
         else:
-            print(f"O valor {valor}passou o limite")
+            print(f"O valor {valor} passou o limite")
 
     def ted(self, conta2, valor):
         self.saque(valor)
