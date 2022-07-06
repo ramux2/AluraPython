@@ -41,3 +41,7 @@ class Conta:
     @limite.setter
     def limite(self, limite):
         self.__limite = limite
+
+    @staticmethod
+    def cod_banco(): #Método estático (Static Method) - Acesso sem precisar criar obj
+        return {"Banco do Brasil": "001", "Caixa": "104", "Bradesco": "237"}
