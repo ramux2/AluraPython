@@ -32,14 +32,15 @@ class Serie(Programa):
 
 
 vingadores = Filme("Homem Aranha - Sem volta pra casa", 2022, 160)
-
 vingadores.dar_like()
-
 print(f"{vingadores.nome} - {vingadores.ano} - {vingadores.duracao}: {vingadores.likes}")
-
 breaking_bad = Serie("Breaking Bad", 2015, 5)
-
 breaking_bad.dar_like()
 breaking_bad.dar_like()
-
 print(f"{breaking_bad.nome} - {breaking_bad.ano} - {breaking_bad.temporadas}: {breaking_bad.likes}")
+
+filmes_e_series = [vingadores, breaking_bad]
+
+for programa in filmes_e_series:
+    detalhes = programa.duracao if hasattr(programa, "duracao") else programa.temporadas
+    print(f"{programa.nome} - {detalhes} - {programa.likes}")
