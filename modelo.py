@@ -19,16 +19,16 @@ class Programa:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
 
-    def imprime(self):
-        print(f"Nome: {self._nome} - Ano: {self.ano} Likes: {self.likes}")
+    def __str__(self):
+        return f"Nome: {self._nome} - Ano: {self.ano} Likes: {self.likes}"
 
 class Filme(Programa):
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano)
         self.duracao = duracao
     
-    def imprime(self):
-        print(f"Nome: {self._nome} - Ano: {self.ano} - Duracao: {self.duracao} min - Likes: {self.likes}")
+    def __str__(self):
+        return f"Nome: {self._nome} - Ano: {self.ano} - Duracao: {self.duracao} min - Likes: {self.likes}"
     
 
 class Serie(Programa):
@@ -36,11 +36,12 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
-    def imprime(self):
-        print(f"Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} Temporadas - Likes: {self.likes}")
+    def __str__(self):
+        return f"Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} Temporadas - Likes: {self.likes}"
 
 class Playlist(Filme, Serie):
-    
+    def __init__(self, nome, ano, duracao):
+        super().__init__(nome, ano, duracao)
     pass
 
 vingadores = Filme("vingadores - guerra infinita", 2018, 160)
@@ -57,4 +58,4 @@ spotify.dar_like()
 filmes_e_series = [vingadores, spotify]
 
 for programa in filmes_e_series:
-    programa.imprime()
+    print(programa)
