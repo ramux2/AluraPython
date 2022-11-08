@@ -19,10 +19,16 @@ class Programa:
     def nome(self, novo_nome):
         self._nome = novo_nome.title()
 
+    def imprime(self):
+        print(f"Nome: {self._nome} - Ano: {self.ano} Likes: {self.likes}")
+
 class Filme(Programa):
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano)
         self.duracao = duracao
+    
+    def imprime(self):
+        print(f"Nome: {self._nome} - Ano: {self.ano} - Duracao: {self.duracao} min - Likes: {self.likes}")
     
 
 class Serie(Programa):
@@ -30,13 +36,25 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self.temporadas = temporadas
 
+    def imprime(self):
+        print(f"Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} Temporadas - Likes: {self.likes}")
+
+class Playlist(Filme, Serie):
+    
+    pass
 
 vingadores = Filme("vingadores - guerra infinita", 2018, 160)
-
-print(f"Nome: {vingadores._nome} Ano:{vingadores.ano} Temporadas: {vingadores.duracao}")
+vingadores.dar_like()
 
 
 spotify = Serie("Som na Faixa", 2022, 2)
+spotify.dar_like()
+spotify.dar_like()
+spotify.dar_like()
 
-print(f"Nome: {spotify._nome} Ano:{spotify.ano} Temporadas: {spotify.temporadas}")
 
+
+filmes_e_series = [vingadores, spotify]
+
+for programa in filmes_e_series:
+    programa.imprime()
