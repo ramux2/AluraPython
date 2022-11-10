@@ -39,12 +39,20 @@ class Serie(Programa):
     def __str__(self):
         return f"Nome: {self._nome} - Ano: {self.ano} - Temporadas: {self.temporadas} Temporadas - Likes: {self.likes}"
 
-class Playlist(list):
+class Playlist:
     def __init__(self, nome, programas):
         self.nome = nome
-        super().__init__(programas)
+        self._programas = programas
     
-    
+    def __getitem__(self, item): #Comportamento que se comporta como iterable
+        return self._programas[item]
+
+    @property
+    def listagem(self):
+        return self._programas
+
+    def __len__(self): #Data Model Container, sequencia
+        return len(self._programas)
 
 vingadores = Filme("vingadores - guerra infinita", 2018, 160)
 spotify = Serie("Som na Faixa", 2022, 2)
