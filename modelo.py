@@ -47,10 +47,6 @@ class Playlist:
     def __getitem__(self, item): #Comportamento que se comporta como iterable
         return self._programas[item]
 
-    @property
-    def listagem(self):
-        return self._programas
-
     def __len__(self): #Data Model Container, sequencia
         return len(self._programas)
 
