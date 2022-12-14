@@ -1,7 +1,14 @@
-from datetime import datetime, timedelta
 from datas import DatasBr
+from cep import BuscaEndereco
+import requests
 
 
-hoje  = datetime.today()
-amanha  = datetime.today() + timedelta(days=1)
 
+cep = 83608150
+
+objeto_cep = BuscaEndereco(cep)
+
+
+bairro, cidade, uf = objeto_cep.acessa_API()
+
+print(bairro, cidade, uf)
