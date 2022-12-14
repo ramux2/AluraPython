@@ -1,12 +1,7 @@
-from cpf import Documento
-from validate_docbr import CNPJ
+from datetime import datetime, timedelta
+from datas import DatasBr
 
 
+hoje  = datetime.today()
+amanha  = datetime.today() + timedelta(days=1)
 
-
-cpf = Documento.cria_documento("10633406910")
-print(cpf)
-
-exemplo_cnpj = "35379838000112"
-documento = Documento.cria_documento(exemplo_cnpj)
-print(documento)
