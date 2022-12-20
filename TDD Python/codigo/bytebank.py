@@ -27,14 +27,12 @@ class Funcionario:
 
     def _e_diretor(self):
         sobrenomes = ['Bragança', 'Windsor', 'Bourbon', 'Yamato', 'Al Saud', 'Khan', 'Tudor', 'Ptolomeu']
-        return self._salario >= 100000 and (self.sobrenome() in sobrenomes)
-   
-        
+        return self.salario >= 100000 and (self.sobrenome() in sobrenomes)
 
     def decrescimo_salario(self):
         if self._e_diretor():
-            decrescimo = self._salario * 0.1
-            self._salario = self._salario - decrescimo
+            decrescimo = self.salario * 0.1
+            self._salario = self.salario - decrescimo
 
     def calcular_bonus(self):
         valor = self._salario * 0.1
